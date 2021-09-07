@@ -1,7 +1,9 @@
-function Pad(x,y){
+function Pad(x,y, player){
 
   this.position = createVector(x,y);
   this.velocity = createVector();
+  this.player = player; 
+  this.point = 0;
 
 
   this.update = function(){
@@ -9,6 +11,10 @@ function Pad(x,y){
     this.position.add(this.velocity);
     this.position.y = constrain(this.position.y,6,height-84);
 
+  }
+
+  this.awardPoint = function(){
+    this.point += 1;
   }
   this.moveUp = function(speed){
     this.velocity.y = -speed;
