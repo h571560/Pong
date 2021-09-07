@@ -37,15 +37,15 @@ function checkWinner() {
   if (pad1.point === 10) {
     gameOver = true;
     winner = pad1.player;
-    if (pad2.point === 10) {
-      gameOver = true;
-      winner = pad2.player;
-    }
-    if (gameOver) {
-      alert('Game Over! Winner is ' + winner)
-    }
-
   }
+  if (pad2.point === 10) {
+    gameOver = true;
+    winner = pad2.player;
+  }
+  if (gameOver) {
+    alert('Game Over! Winner is ' + winner)
+  }
+
 }
 
 function player2Move() {
@@ -109,24 +109,24 @@ function checkGameLogic(particle, pad1, pad2) {
   }
 }
 
-function checkStartGame(){
-  if((clickPos[0] > 432 && clickPos[0] < 581) && (clickPos[1] > 355 && clickPos[1] < 425)){
-    gameOver= false
+function checkStartGame() {
+  if ((clickPos[0] > 432 && clickPos[0] < 581) && (clickPos[1] > 355 && clickPos[1] < 425)) {
+    gameOver = false
     setup()
   }
 }
 
-function mouseClicked(){
+function mouseClicked() {
   clickPos = [mouseX, mouseY]
   console.log('clicked: ' + clickPos[0].toString() + ' ' + clickPos[1].toString())
 }
 
 function draw() {
   if (!gameOver) {
-  background(255, 255, 255);
-  fill(0, 0, 0);
-  textSize(25);
-  stroke(255, 255, 255);
+    background(255, 255, 255);
+    fill(0, 0, 0);
+    textSize(25);
+    stroke(255, 255, 255);
     text(pad1.point, 80, 30);
     text(pad2.point, width - 150, 30);
     particle.update();
@@ -154,19 +154,19 @@ function draw() {
     player2Move();
     keyboardMove();
   }
-  else{
-  background(255,255,255);
-  fill(0, 0, 0);
-  textSize(30);
-  stroke(255, 255, 255);
-  text('Welcome to pong! press play to start playing',width/5, height/2)
-  frame.show();
-  fill(224,245,223) 
-  rect(width/2-68,height - 145,150,70)
-  fill(255,255,255)
-  textSize(25);
-  stroke(0, 0, 0);
-  text('Play!',width/2 -20, height - 100)
-  checkStartGame()
+  else {
+    background(255, 255, 255);
+    fill(0, 0, 0);
+    textSize(30);
+    stroke(255, 255, 255);
+    text('Welcome to pong! press play to start playing', width / 5, height / 2)
+    frame.show();
+    fill(224, 245, 223)
+    rect(width / 2 - 68, height - 145, 150, 70)
+    fill(255, 255, 255)
+    textSize(25);
+    stroke(0, 0, 0);
+    text('Play!', width / 2 - 20, height - 100)
+    checkStartGame()
   }
 }
